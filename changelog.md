@@ -1,14 +1,14 @@
-***✨ v2.5 – Version Changes:***
+***✨ v2.51 – Version Changes:***
 
-→ Remove Set Up Custom Keybox
+→ Add function to add HMA-oss configs
 
-→ Use Termux to get files on Internet without depend on busybox module
+→ Add resetprop function to reset some prop to hide some detections
 
 ***📌 Other Changes:***
 
 → Fix some function which are not properly translated
+You can help us to translate via [here](https://crwd.in/yurikey/e80b9adaa706626608af1cf366ca41fe2694978)
 
 → Various performance improvement
 
-→ [All changes](https://github.com/YurikeyDev/yurikey/compare/v2.41...main).
-
+→ [All changes](https://github.com/YurikeyDev/yurikey/compare/v2.5...main).
