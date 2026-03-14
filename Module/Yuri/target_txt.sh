@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/system/bin/sh
 
 log_message() {
     echo "$(date +%Y-%m-%d\ %H:%M:%S) [SET_TARGET] $1"
@@ -20,7 +20,7 @@ if [ -f "$tees" ]; then
 fi
 
 # add list special
-rm -rf $"t"
+rm -rf "$t"
 fixed_targets="\
 android
 com.android.vending!
@@ -31,6 +31,7 @@ io.github.vvb2060.mahoshojo!
 com.google.android.contactkeys!
 com.google.android.ims!
 com.google.android.safetycore!
+com.google.android.apps.walletnfcrel!
 com.google.android.apps.nbu.paisa.user!
 com.youhu.laifu!
 com.whatsapp!
@@ -42,7 +43,7 @@ io.liankong.riskdetector!
 me.garfieldhan.holmes!
 luna.safe.luna!
 com.zhenxi.hunter!
-com.studio.duckdetector"
+com.studio.duckdetector?"
 for entry in $fixed_targets; do
     if ! echo "$entry" >> "$t"; then
         log_message "ERROR: Failed to write $entry to $t"
@@ -63,8 +64,8 @@ add_packages() {
     echo "$pkgs" | cut -d ":" -f 2 | while read -r pkg; do
         if [ -n "$pkg" ] && ! grep -q "^$pkg" "$t"; then
             if [ "$teeBroken" = "true" ]; then
-                if ! echo "$pkg!" >> "$t"; then
-                    log_message "ERROR: Failed to write $pkg! to $t"
+                if ! echo "$pkg?" >> "$t"; then
+                    log_message "ERROR: Failed to write $pkg? to $t"
                     exit 1
                 fi
             else
