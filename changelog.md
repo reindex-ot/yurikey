@@ -1,15 +1,6 @@
-***✨ v2.60 – Version Changes:***
+***✨ v2.61 – Version Changes:***
+→ Add New Valid Keybox Yurikey45.
 
-→ Add token RKA ( Play Strong). Currently trying to improve further. Public free token RKA strong integrity on this version.
+→ Fix bugs, add, support more root detectors on target.txt.
 
-→ Instead of Clear Data Play Store -> Clear Cache Play Store.
-
-→ Fix resetprop detection error.
-
-***📌 Other Changes:***
-
-→ Fix some function which are not properly translated
-
-→ Various performance improvement
-
-→ [All changes](https://github.com/YurikeyDev/yurikey/compare/v2.51...main).
+→ [All changes](https://github.com/YurikeyDev/yurikey/compare/v2.60...main).
