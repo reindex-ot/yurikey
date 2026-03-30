@@ -157,6 +157,14 @@ body {
   background: var(--ui-pill-bg-hover);
 }
 
+#home-page #refresh-info-btn:disabled,
+#home-page #refresh-info-btn.rotating {
+  opacity: 1;
+  background: var(--ui-pill-bg);
+  color: var(--ui-pill-text);
+  border-color: var(--ui-pill-border);
+}
+
 #home-page #refresh-info-btn:active,
 #actions-page .menu-btn:active,
 #advance-menu .menu-btn:active,
