@@ -4,7 +4,6 @@
   "nav_update": "Actualizar",
   "nav_advancemenu": "Menú +",
   "nav_settings": "Ajustes",
-
   "home_version": "Versión del Módulo",
   "home_root": "Implementación Root",
   "home_refresh": "Actualizar Info",
@@ -14,7 +13,6 @@
   "home_status_offline": "Desconectado",
   "home_clock_date": "Fecha",
   "home_clock_time": "Hora",
-
   "menu_title": "Menú Principal",
   "menu_force_clear": "Forzar Detención y Limpiar Datos de Play Store",
   "menu_keybox": "Actualizar Yuri Keybox",
@@ -31,32 +29,38 @@
   "advance_kill_all": "Matar todo el proceso",
   "advance_wdevinel1": "Arreglar Widevine L1",
   "advance_set_verified_boot": "Establecer Boothash verificado",
-
   "update_title": "Actualización y Soporte",
   "update_desc": "Mantente actualizado con la ultima versión de Yurikey, corrección de bugs y nuevas funciones!",
   "update_github": "Ver en GitHub",
   "update_telegram": "Unirse al Canal de Telegram",
   "update_note": "Únete al canal de Telegram o revisa Github para actualizaciones, contribuciones y discusiones tecnicas.",
-
   "settings_contributors": "Contribuidores del Proyecto",
-
   "role_Founder & Module Developer": "Fundador y Desarollador del Modulo",
   "role_Module Developer": "Desarollador del Módulo",
   "role_WebUI Developer": "Desarrollador WebUI",
   "role_Ex Module Developer": "Ex desarrollador de módulo.",
-
   "executing": "Ejecutando \"{script}\"...",
   "success": "Script \"{script}\" ejectuado satisfactoriamente",
   "failed": "Falló la ejecución del script \"{script}\".",
   "timeout": "Tiempo Agotado del script \"{script}\".",
   "ksu_not_available": "API de ejecución de KernelSU no disponible",
-
   "status_online": "Estado: En línea",
   "status_offline": "Estado: Desconectado",
   "home_refresh_failed": "Falló la actualización de información",
   "home_no_internet": "Sin conexión a internet.",
   "home_connected": "Conectado",
-  "home_disconnected": "Desconectado"
-
+  "home_disconnected": "Desconectado",
+  "settings_appearance": "Appearance",
+  "settings_clock_format": "Clock Format",
+  "clock_format_auto": "Auto (Device)",
+  "clock_format_24h": "24-hour (00:00)",
+  "clock_format_12h": "12-hour (AM/PM)",
+  "theme_mode_dark": "Dark",
+  "theme_mode_light": "Light",
+  "theme_mode_auto": "Auto (System)",
+  "theme_preset_ocean": "Ocean",
+  "theme_preset_rose": "Rose",
+  "theme_preset_forest": "Forest",
+  "theme_preset_sunset": "Sunset",
+  "theme_preset_violet": "Violet"
 }
-

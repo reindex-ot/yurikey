@@ -4,7 +4,6 @@
   "nav_update": "Atualizar",
   "nav_advancemenu": "Menu +",
   "nav_settings": "Config",
-
   "home_version": "Versão do Módulo",
   "home_root": "Tipo de Root",
   "home_refresh": "Atualizar",
@@ -14,7 +13,6 @@
   "home_status_offline": "Offline",
   "home_clock_date": "Data",
   "home_clock_time": "Hora",
-
   "menu_title": "MENU PRINCIPAL",
   "menu_force_clear": "Fechar & Limpar os Dados da PlayStore",
   "menu_keybox": "Configurar Yuri Keybox",
@@ -22,7 +20,6 @@
   "menu_target": "Configurar Target.txt",
   "menu_necessary": "Configuração necessária",
   "menu_patch": "Configurar o Patch de Segurança",
-
   "advance_menu_title": "Menu Avançado",
   "advance_clear_all_detection_traces": "",
   "advance_set_hma-oss_configs": "",
@@ -32,32 +29,38 @@
   "advance_kill_all": "Matar todos os processos",
   "advance_wdevinel1": "Reparar Widevine L1",
   "advance_set_verified_boot": "Configurar a Verificação do Boothash",
-
   "update_title": "ATUALIZAÇÃO & SUPORTE",
   "update_desc": "Mantenha-se atualizado com a versão mais recente do Yurikey, correções de bugs e novos recursos.",
   "update_github": "Ver no GitHub",
   "update_telegram": "Junte-se ao canal Telegram",
   "update_note": "Junte-se ao nosso canal no Telegram ou verifique o GitHub para atualizações, contribuições e discussões técnicas.",
-
   "settings_contributors": "Colaboradores do Projeto",
-
   "role_Founder & Module Developer": "Fundador e Desenvolvedor de Módulos",
   "role_Module Developer": "Desenvolvedor de Módulos",
   "role_WebUI Developer": "WebUI Desenvolver",
   "role_Ex Module Developer": "Ex-desenvolvedor de módulos",
-
   "executing": "Executando \"{script}\"...",
   "success": "Script \"{script}\" executado com sucesso.",
   "failed": "Falha ao executar script \"{script}\".",
   "timeout": "Script \"{script}\" expirou o tempo.",
   "ksu_not_available": "KernelSU API não disponível.",
-
   "status_online": "Status: Online",
   "status_offline": "Status: Offline",
   "home_refresh_failed": "Falha ao atualizar as informações!",
   "home_no_internet": "Sem conexão com a internet.",
   "home_connected": "Conectado",
-  "home_disconnected": "Desconectado"
-
+  "home_disconnected": "Desconectado",
+  "settings_appearance": "Appearance",
+  "settings_clock_format": "Clock Format",
+  "clock_format_auto": "Auto (Device)",
+  "clock_format_24h": "24-hour (00:00)",
+  "clock_format_12h": "12-hour (AM/PM)",
+  "theme_mode_dark": "Dark",
+  "theme_mode_light": "Light",
+  "theme_mode_auto": "Auto (System)",
+  "theme_preset_ocean": "Ocean",
+  "theme_preset_rose": "Rose",
+  "theme_preset_forest": "Forest",
+  "theme_preset_sunset": "Sunset",
+  "theme_preset_violet": "Violet"
 }
-

@@ -4,7 +4,6 @@
   "nav_update": "I-update",
   "nav_advancemenu": "Menu +",
   "nav_settings": "Mga Setting",
-
   "home_version": "Bersyon ng Module",
   "home_root": "Implementasyon ng Root",
   "home_refresh": "I-refresh ang Impormasyon",
@@ -14,7 +13,6 @@
   "home_status_offline": "Offline",
   "home_clock_date": "Petsa ng Orasan",
   "home_clock_time": "Oras ng Orasan",
-
   "menu_title": "PANGUNAHING MENU",
   "menu_force_clear": "Piliting Itigil & Linisin ang Data ng Play Store",
   "menu_keybox": "I-set Up ang Yuri Keybox",
@@ -22,7 +20,6 @@
   "menu_target": "I-set Up ang target.txt",
   "menu_necessary": "Itakda ang kinakailangang app",
   "menu_patch": "I-apply ang Security Patch",
-
   "advance_menu_title": "Advanced Menu",
   "advance_clear_all_detection_traces": "Linisin ang lahat ng bakas ng pagtuklas",
   "advance_set_hma-oss_configs": "Itakda ang HMA-oss na mga configuration",
@@ -32,32 +29,38 @@
   "advance_kill_all": "Patayin ang Lahat ng Proseso",
   "advance_wdevinel1": "Ayusin ang Widevine L1",
   "advance_set_verified_boot": "Itakda ang Verified Boothash",
-
   "update_title": "UPDATE AT SUPORTA",
   "update_desc": "Manatiling updated sa pinakabagong bersyon ng Yurikey, mga pag-aayos ng bug, at mga bagong tampok.",
   "update_github": "Tingnan sa GitHub",
   "update_telegram": "Sumali sa Telegram Channel",
   "update_note": "Sumali sa aming Telegram channel o tingnan ang GitHub para sa mga update, kontribusyon, at teknikal na talakayan.",
-
   "settings_contributors": "Mga Kontribyutor ng Proyekto",
-
   "role_Founder & Module Developer": "Tagapagtatag at Developer ng Module",
   "role_Module Developer": "Developer ng Module",
   "role_WebUI Developer": "Developer ng WebUI",
   "role_Ex Module Developer": "Dating Developer ng Module",
-
   "executing": "Isinasagawa ang \"{script}\"...",
   "success": "Matagumpay na naisagawa ang script na \"{script}\".",
   "failed": "Nabigong isagawa ang script na \"{script}\".",
   "timeout": "Nauubos ang oras ng script na \"{script}\".",
   "ksu_not_available": "Hindi available ang KernelSU exec API.",
-
   "status_online": "Status: Online",
   "status_offline": "Status: Offline",
   "home_refresh_failed": "Nabigong i-refresh ang impormasyon.",
   "home_no_internet": "Walang koneksyon sa internet.",
   "home_connected": "Konektado",
-  "home_disconnected": "Nawalan ng koneksyon"
-
+  "home_disconnected": "Nawalan ng koneksyon",
+  "settings_appearance": "Appearance",
+  "settings_clock_format": "Clock Format",
+  "clock_format_auto": "Auto (Device)",
+  "clock_format_24h": "24-hour (00:00)",
+  "clock_format_12h": "12-hour (AM/PM)",
+  "theme_mode_dark": "Dark",
+  "theme_mode_light": "Light",
+  "theme_mode_auto": "Auto (System)",
+  "theme_preset_ocean": "Ocean",
+  "theme_preset_rose": "Rose",
+  "theme_preset_forest": "Forest",
+  "theme_preset_sunset": "Sunset",
+  "theme_preset_violet": "Violet"
 }
-

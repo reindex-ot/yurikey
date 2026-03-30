@@ -366,10 +366,17 @@ body {
 .contrib-card {
   border: 1px solid var(--outline-variant);
   border-radius: 0.8rem;
-  background: var(--surface-container);
+  background: color-mix(in srgb, var(--ui-card-bg) 88%, #ffffff 12%);
   color: var(--on-surface);
   padding: 0.8rem;
   text-align: center;
+  min-height: 138px;
+  box-shadow: 0 6px 16px rgb(0 0 0 / 18%);
+}
+
+.contrib-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--ui-pill-border);
 }
 
 .contrib-card img {

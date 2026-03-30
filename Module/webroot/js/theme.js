@@ -138,6 +138,16 @@ function getStoredMode() {
   return localStorage.getItem(THEME_MODE_KEY) || "dark";
 }
 
+function themeText(key, fallback) {
+  return window.translations?.[key] || fallback;
+}
+
+function getThemeModeLabel(mode) {
+  if (mode === "auto") return themeText("theme_mode_auto", "Auto (System)");
+  if (mode === "light") return themeText("theme_mode_light", "Light");
+  return themeText("theme_mode_dark", "Dark");
+}
+
 function getResolvedThemeMode(mode) {
   if (mode === "auto") {
     return window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark";
@@ -154,7 +164,7 @@ function applyThemeMode(mode) {
 function applyThemePreset(presetName) {
   const root = document.documentElement;
   const resolvedMode = root.getAttribute("data-theme-mode") || "dark";
-  const preset = THEME_PRESETS[presetName] || THEME_PRESETS.rose;
+  const preset = THEME_PRESETS[presetName] || THEME_PRESETS.ocean;
   const colors = preset[resolvedMode] || preset.dark;
 
   Object.entries(colors).forEach(([key, value]) => root.style.setProperty(key, value));
@@ -170,7 +180,7 @@ function setupThemeModeDropdown() {
   if (!modeBtn || !modeOptions) return;
 
   const savedMode = getStoredMode();
-  modeBtn.innerText = savedMode === "auto" ? "Auto (System)" : savedMode[0].toUpperCase() + savedMode.slice(1);
+  modeBtn.innerText = getThemeModeLabel(savedMode);
   applyThemeMode(savedMode);
 
   modeBtn.addEventListener("click", (e) => {
@@ -182,10 +192,10 @@ function setupThemeModeDropdown() {
     item.addEventListener("click", () => {
       const mode = item.dataset.mode || "dark";
       localStorage.setItem(THEME_MODE_KEY, mode);
-      modeBtn.innerText = mode === "auto" ? "Auto (System)" : mode[0].toUpperCase() + mode.slice(1);
+      modeBtn.innerText = getThemeModeLabel(mode);
       modeOptions.classList.remove("show");
       applyThemeMode(mode);
-      applyThemePreset(localStorage.getItem(THEME_PRESET_KEY) || "rose");
+      applyThemePreset(localStorage.getItem(THEME_PRESET_KEY) || "ocean");
     });
   });
 
@@ -197,7 +207,7 @@ function setupThemeModeDropdown() {
 }
 
 function setupThemePresets() {
-  const savedPreset = localStorage.getItem(THEME_PRESET_KEY) || "rose";
+  const savedPreset = localStorage.getItem(THEME_PRESET_KEY) || "ocean";
   applyThemePreset(savedPreset);
 
   document.querySelectorAll(".theme-preset-btn").forEach(btn => {
@@ -217,7 +227,12 @@ window.addEventListener("DOMContentLoaded", () => {
   window.matchMedia("(prefers-color-scheme: light)").addEventListener("change", () => {
     if (getStoredMode() === "auto") {
       applyThemeMode("auto");
-      applyThemePreset(localStorage.getItem(THEME_PRESET_KEY) || "rose");
+      applyThemePreset(localStorage.getItem(THEME_PRESET_KEY) || "ocean");
     }
+  });
+
+  document.addEventListener("languageChanged", () => {
+    const modeBtn = document.getElementById("theme-mode-btn");
+    if (modeBtn) modeBtn.innerText = getThemeModeLabel(getStoredMode());
   });
 });

@@ -4,7 +4,6 @@
   "nav_update": "更新",
   "nav_advancemenu": "メニュー +",
   "nav_settings": "設定",
-
   "home_version": "モジュールのバージョン",
   "home_root": "Root の実装",
   "home_refresh": "情報を更新",
@@ -14,7 +13,6 @@
   "home_status_offline": "オフライン",
   "home_clock_date": "時計の日付",
   "home_clock_time": "時計の時刻",
-
   "menu_title": "メインメニュー",
   "menu_force_clear": "Play ストアの強制停止とデータ消去",
   "menu_keybox": "Yuri Keybox を設定",
@@ -22,7 +20,6 @@
   "menu_target": "Target.txt を設定",
   "menu_necessary": "必要なアプリのみを設定",
   "menu_patch": "セキュリティパッチを設定",
-
   "advance_menu_title": "高度なメニュー",
   "advance_clear_all_detection_traces": "すべての検出痕跡を消去する",
   "advance_set_hma-oss_configs": "HMA-oss の設定を行う",
@@ -32,30 +29,38 @@
   "advance_kill_all": "すべてのプロセスを停止",
   "advance_wdevinel1": "Widevine L1 の修正",
   "advance_set_verified_boot": "確認付きブートハッシュを設定",
-
   "update_title": "更新とサポート",
   "update_desc": "YuriKey の最新バージョン、バグ修正、新機能についての最新情報を入手しましょう。",
   "update_github": "GitHub を表示",
   "update_telegram": "Telegram チャンネルに参加",
   "update_note": "更新、貢献、技術的な議論については Telegram チャンネルに参加するか、GitHub を確認してください。",
-
   "settings_contributors": "プロジェクトの貢献者",
-
   "role_Founder & Module Developer": "創設者とモジュールの開発者",
   "role_Module Developer": "モジュールの開発者",
   "role_WebUI Developer": "WebUI の開発者",
   "role_Ex Module Developer": "モジュールの元開発者",
-
   "executing": "「{script}」を実行中...",
   "success": "「{script}」の実行に成功しました。",
   "failed": "「{script}」の実行に失敗しました。",
   "timeout": "「{script}」がタイムアウトしました。",
   "ksu_not_available": "KernelSU exec API は使用できません。",
-
   "status_online": "ステータス: オンライン",
   "status_offline": "ステータス: オフライン",
   "home_refresh_failed": "情報を更新できませんでした。",
   "home_no_internet": "インターネット接続がありません。",
   "home_connected": "接続済み",
-  "home_disconnected": "切断済み"
+  "home_disconnected": "切断済み",
+  "settings_appearance": "Appearance",
+  "settings_clock_format": "Clock Format",
+  "clock_format_auto": "Auto (Device)",
+  "clock_format_24h": "24-hour (00:00)",
+  "clock_format_12h": "12-hour (AM/PM)",
+  "theme_mode_dark": "Dark",
+  "theme_mode_light": "Light",
+  "theme_mode_auto": "Auto (System)",
+  "theme_preset_ocean": "Ocean",
+  "theme_preset_rose": "Rose",
+  "theme_preset_forest": "Forest",
+  "theme_preset_sunset": "Sunset",
+  "theme_preset_violet": "Violet"
 }
