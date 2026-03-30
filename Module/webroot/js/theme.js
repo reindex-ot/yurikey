@@ -1,7 +1,5 @@
 const THEME_MODE_KEY = "themeMode";
 const THEME_PRESET_KEY = "themePreset";
-const THEME_USE_BEER_KEY = "themeUseBeerPalette";
-const THEME_BEER_COLOR_KEY = "themeBeerColor";
 
 const THEME_PRESETS = {
   ocean: {
@@ -26,8 +24,6 @@ const THEME_PRESETS = {
   },
 };
 
-const DEFAULT_BEER_COLOR = "#2196f3";
-
 function hexToRgb(hex) {
   const h = hex.replace("#", "");
   const n = h.length === 3 ? h.split("").map(c => c + c).join("") : h;
@@ -43,8 +39,11 @@ function mix(a, b, t) {
 }
 
 function getStoredMode() { return localStorage.getItem(THEME_MODE_KEY) || "dark"; }
-function isBeerMode() { return localStorage.getItem(THEME_USE_BEER_KEY) === "1"; }
 function getResolvedMode(mode) { return mode === "auto" ? (window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark") : (mode || "dark"); }
+function getStoredPreset() {
+  const preset = localStorage.getItem(THEME_PRESET_KEY) || "ocean";
+  return THEME_PRESETS[preset] ? preset : "ocean";
+}
 function themeText(key, fallback) { return window.translations?.[key] || fallback; }
 function modeLabel(mode) {
   if (mode === "auto") return themeText("theme_mode_auto", "Auto (System)");
@@ -65,6 +64,7 @@ function withDerived(colors, mode) {
     "--ui-snackbar-success": mix(base, "#43b77f", mode === "light" ? 0.52 : 0.6),
     "--ui-snackbar-warning": mix(base, "#d88f2b", mode === "light" ? 0.48 : 0.52),
     "--ui-snackbar-error": mix(base, "#c4555e", mode === "light" ? 0.55 : 0.58),
+    "--ui-pill-text": pillText,
   };
 }
 
@@ -80,42 +80,15 @@ function applyThemeMode(mode) {
 }
 
 function applyThemePreset(presetName) {
-  if (isBeerMode()) return;
   const mode = document.documentElement.getAttribute("data-theme-mode") || "dark";
   const preset = THEME_PRESETS[presetName] || THEME_PRESETS.ocean;
   applyColors(withDerived(preset[mode] || preset.dark, mode));
   document.querySelectorAll(".theme-preset-btn").forEach(btn => btn.classList.toggle("active", btn.dataset.themePreset === presetName));
 }
 
-function applyBeerPalette(hex) {
-  const mode = document.documentElement.getAttribute("data-theme-mode") || "dark";
-  const dark = mode === "dark";
-  const colors = {
-    "--ui-pill-bg": hex,
-    "--ui-pill-text": dark ? "#111" : "#fff",
-    "--ui-nav-active": mix(hex, dark ? "#2a2a2a" : "#4a4a4a", 0.35),
-    "--ui-nav-text": dark ? "#d8d5e9" : "#534661",
-    "--ui-bg": dark ? mix(hex, "#0d1022", 0.9) : mix(hex, "#ece9f2", 0.82),
-    "--ui-card-bg": dark ? mix(hex, "#1f2438", 0.82) : mix(hex, "#f5f1f8", 0.85),
-    "--ui-card-border": dark ? mix(hex, "#3a3f58", 0.72) : mix(hex, "#d5c9dc", 0.74),
-    "--ui-select-bg": dark ? mix(hex, "#3e3445", 0.72) : mix(hex, "#e8deeb", 0.72),
-    "--ui-select-panel": dark ? mix(hex, "#282230", 0.78) : mix(hex, "#efe7f2", 0.78),
-  };
-  applyColors(withDerived(colors, mode));
-  document.querySelectorAll(".beer-color-btn").forEach(btn => btn.classList.toggle("active", btn.dataset.beerColor === hex));
-}
-
-function toggleBeerPanel(enabled) {
-  const panel = document.getElementById("beer-color-panel");
-  const presets = document.querySelector(".theme-presets");
-  if (panel) panel.classList.toggle("active", enabled);
-  if (presets) presets.style.display = enabled ? "none" : "grid";
-}
-
 window.addEventListener("DOMContentLoaded", () => {
   const modeBtn = document.getElementById("theme-mode-btn");
   const modeOptions = document.getElementById("theme-mode-options");
-  const switchEl = document.getElementById("theme-default-switch");
 
   const mode = getStoredMode();
   modeBtn.innerText = modeLabel(mode);
@@ -129,50 +102,26 @@ window.addEventListener("DOMContentLoaded", () => {
       modeBtn.innerText = modeLabel(m);
       modeOptions.classList.remove("show");
       applyThemeMode(m);
-      if (isBeerMode()) applyBeerPalette(localStorage.getItem(THEME_BEER_COLOR_KEY) || DEFAULT_BEER_COLOR);
-      else applyThemePreset(localStorage.getItem(THEME_PRESET_KEY) || "ocean");
+      applyThemePreset(getStoredPreset());
     });
   });
   document.addEventListener("click", (e) => { if (!modeOptions.contains(e.target) && e.target !== modeBtn) modeOptions.classList.remove("show"); });
 
-  const savedPreset = localStorage.getItem(THEME_PRESET_KEY) || "ocean";
   document.querySelectorAll(".theme-preset-btn").forEach(btn => {
     btn.addEventListener("click", () => {
       const p = btn.dataset.themePreset;
-      if (!p) return;
+      if (!p || !THEME_PRESETS[p]) return;
       localStorage.setItem(THEME_PRESET_KEY, p);
       applyThemePreset(p);
     });
   });
 
-  switchEl.checked = isBeerMode();
-  toggleBeerPanel(switchEl.checked);
-  switchEl.addEventListener("change", () => {
-    localStorage.setItem(THEME_USE_BEER_KEY, switchEl.checked ? "1" : "0");
-    toggleBeerPanel(switchEl.checked);
-    if (switchEl.checked) {
-      applyBeerPalette(localStorage.getItem(THEME_BEER_COLOR_KEY) || DEFAULT_BEER_COLOR);
-    } else {
-      applyThemePreset(localStorage.getItem(THEME_PRESET_KEY) || "ocean");
-    }
-  });
-
-  document.querySelectorAll(".beer-color-btn").forEach(btn => {
-    btn.addEventListener("click", () => {
-      const color = btn.dataset.beerColor || DEFAULT_BEER_COLOR;
-      localStorage.setItem(THEME_BEER_COLOR_KEY, color);
-      applyBeerPalette(color);
-    });
-  });
-
-  if (isBeerMode()) applyBeerPalette(localStorage.getItem(THEME_BEER_COLOR_KEY) || DEFAULT_BEER_COLOR);
-  else applyThemePreset(savedPreset);
+  applyThemePreset(getStoredPreset());
 
   window.matchMedia("(prefers-color-scheme: light)").addEventListener("change", () => {
     if (getStoredMode() === "auto") {
       applyThemeMode("auto");
-      if (isBeerMode()) applyBeerPalette(localStorage.getItem(THEME_BEER_COLOR_KEY) || DEFAULT_BEER_COLOR);
-      else applyThemePreset(localStorage.getItem(THEME_PRESET_KEY) || "ocean");
+      applyThemePreset(getStoredPreset());
     }
   });
 

@@ -1,23 +1,23 @@
 :root {
   color-scheme: dark;
-  --ui-bg: #11142a;
+  --ui-bg: #101a2b;
   --ui-text: #f3edf7;
-  --ui-card-bg: #292d45;
-  --ui-card-border: #414867;
-  --ui-muted: #d0c3da;
-  --ui-pill-bg: #eba3c2;
-  --ui-pill-bg-hover: #f0b4cd;
-  --ui-pill-border: #f4bfd5;
-  --ui-pill-text: #4f1835;
-  --ui-nav-active: #7f2750;
-  --ui-nav-text: #d8d5e9;
+  --ui-card-bg: #1b2a3d;
+  --ui-card-border: #30435a;
+  --ui-muted: #c2d0e3;
+  --ui-pill-bg: #87b7f0;
+  --ui-pill-bg-hover: #9ac3f3;
+  --ui-pill-border: #bad2f5;
+  --ui-pill-text: #15365a;
+  --ui-nav-active: #2f5f97;
+  --ui-nav-text: #d4dfef;
   --ui-nav-text-active: #ffffff;
-  --ui-select-bg: #5a4e57;
-  --ui-select-border: #9b8c98;
-  --ui-select-panel: #3b3139;
-  --ui-select-panel-border: #8b7d89;
-  --ui-snackbar-bg: #2f2631;
-  --ui-snackbar-border: #78667b;
+  --ui-select-bg: #3b5476;
+  --ui-select-border: #7f9fc7;
+  --ui-select-panel: #273a52;
+  --ui-select-panel-border: #6986ab;
+  --ui-snackbar-bg: #223146;
+  --ui-snackbar-border: #5f7ea6;
   --ui-snackbar-text: #f3edf7;
   --ui-snackbar-info: color-mix(in srgb, var(--ui-pill-bg) 52%, #7aa3ff 48%);
   --ui-snackbar-success: color-mix(in srgb, var(--ui-pill-bg) 35%, #5fcf8f 65%);
@@ -27,24 +27,24 @@
 
 :root[data-theme-mode="light"] {
   color-scheme: light;
-  --ui-bg: #d8d7df;
+  --ui-bg: #d7e2ef;
   --ui-text: #2f2433;
-  --ui-card-bg: #f2eef6;
-  --ui-card-border: #cbc3d4;
-  --ui-muted: #5f4d66;
-  --ui-pill-bg: #d685a9;
-  --ui-pill-bg-hover: #de96b6;
-  --ui-pill-border: #dca8c1;
+  --ui-card-bg: #ecf2f8;
+  --ui-card-border: #bfd0e3;
+  --ui-muted: #44607d;
+  --ui-pill-bg: #6b9dd8;
+  --ui-pill-bg-hover: #7fafdf;
+  --ui-pill-border: #a6c3e6;
   --ui-pill-text: #ffffff;
-  --ui-nav-active: #a24574;
-  --ui-nav-text: #534661;
+  --ui-nav-active: #356da8;
+  --ui-nav-text: #36516f;
   --ui-nav-text-active: #ffffff;
-  --ui-select-bg: #e4d5e8;
-  --ui-select-border: #c3afc9;
-  --ui-select-panel: #efe4f2;
-  --ui-select-panel-border: #cfbdd5;
-  --ui-snackbar-bg: #f2e9f4;
-  --ui-snackbar-border: #ccb8d1;
+  --ui-select-bg: #d7e6f5;
+  --ui-select-border: #b5cee7;
+  --ui-select-panel: #e7f0f8;
+  --ui-select-panel-border: #c4d7ea;
+  --ui-snackbar-bg: #edf3fa;
+  --ui-snackbar-border: #bfd3e8;
   --ui-snackbar-text: #2f2433;
   --ui-snackbar-info: color-mix(in srgb, var(--ui-pill-bg) 58%, #5776c5 42%);
   --ui-snackbar-success: color-mix(in srgb, var(--ui-pill-bg) 36%, #3d9a66 64%);
@@ -378,89 +378,7 @@ body {
   line-height: 1.2;
 }
 
-.default-switch-wrap {
-  position: relative;
-  display: inline-flex;
-  width: 64px;
-  height: 34px;
-}
 
-.default-switch-wrap input {
-  position: absolute;
-  inset: 0;
-  opacity: 0;
-  width: 100%;
-  height: 100%;
-  cursor: pointer;
-  z-index: 2;
-}
-
-.default-switch-ui {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  border-radius: 999px;
-  border: 2px solid color-mix(in srgb, var(--ui-card-border) 82%, #ffffff 18%);
-  background: color-mix(in srgb, var(--ui-card-bg) 78%, #000 22%);
-  display: inline-flex;
-  align-items: center;
-  justify-content: flex-start;
-  padding: 0 5px;
-  transition: all 0.2s ease;
-  pointer-events: none;
-}
-
-.default-switch-ui::before {
-  content: "";
-  display: block;
-  width: 16px;
-  height: 16px;
-  border-radius: 50%;
-  background: rgb(255 255 255 / 70%);
-  box-shadow: 0 1px 2px rgb(0 0 0 / 30%);
-  transition: transform 0.2s ease, background 0.2s ease;
-}
-
-.default-switch-wrap input:checked + .default-switch-ui {
-  background: var(--ui-nav-active);
-  border-color: color-mix(in srgb, var(--ui-nav-active) 70%, #ffffff 30%);
-}
-
-.default-switch-wrap input:checked + .default-switch-ui::before {
-  transform: translateX(30px);
-  background: #ffffff;
-}
-
-.default-switch-wrap input:checked + .default-switch-ui::after {
-  content: "✓";
-  position: absolute;
-  right: 11px;
-  color: #ffffff;
-  font-size: 12px;
-  font-weight: 700;
-}
-
-.beer-color-panel {
-  display: none;
-  margin-top: 0.75rem;
-  grid-template-columns: repeat(auto-fit, minmax(30px, 1fr));
-  gap: 0.55rem;
-}
-
-.beer-color-panel.active {
-  display: grid;
-}
-
-.beer-color-btn {
-  width: 30px;
-  height: 30px;
-  border-radius: 999px;
-  border: 2px solid rgb(255 255 255 / 35%);
-}
-
-.beer-color-btn.active {
-  box-shadow: 0 0 0 2px var(--ui-pill-border);
-}
 
 .contrib-grid {
   margin-top: 0.75rem;
