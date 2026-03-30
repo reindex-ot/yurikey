@@ -374,7 +374,7 @@ body {
 }
 
 .appearance-title {
-  font-size: 1.24rem;
+  font-size: 1.08rem;
   line-height: 1.2;
 }
 
@@ -386,9 +386,13 @@ body {
 }
 
 .default-switch-wrap input {
+  position: absolute;
+  inset: 0;
   opacity: 0;
-  width: 0;
-  height: 0;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  z-index: 2;
 }
 
 .default-switch-ui {
@@ -401,6 +405,7 @@ body {
   align-items: center;
   padding: 0 5px;
   transition: all 0.2s ease;
+  pointer-events: none;
 }
 
 .default-switch-ui::before {
