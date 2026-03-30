@@ -3,24 +3,24 @@ const THEME_PRESET_KEY = "themePreset";
 
 const THEME_PRESETS = {
   ocean: {
-    dark: { "--ui-bg": "#101a2b", "--ui-card-bg": "#1b2a3d", "--ui-card-border": "#30435a", "--ui-pill-bg": "#87b7f0", "--ui-pill-text": "#15365a", "--ui-nav-active": "#2f5f97", "--ui-nav-text": "#d4dfef" },
-    light:{ "--ui-bg": "#d7e2ef", "--ui-card-bg": "#ecf2f8", "--ui-card-border": "#bfd0e3", "--ui-pill-bg": "#6b9dd8", "--ui-pill-text": "#ffffff", "--ui-nav-active": "#356da8", "--ui-nav-text": "#36516f" },
+    dark: { "--ui-bg": "#101a2b", "--ui-card-bg": "#1b2a3d", "--ui-card-border": "#30435a", "--ui-pill-bg": "#87b7f0", "--ui-pill-text": "#15365a", "--ui-nav-active": "#2f5f97", "--ui-nav-text": "#d4dfef", "--ui-select-bg": "#3b5476", "--ui-select-border": "#7f9fc7", "--ui-select-panel": "#273a52", "--ui-select-panel-border": "#6986ab" },
+    light:{ "--ui-bg": "#d7e2ef", "--ui-card-bg": "#ecf2f8", "--ui-card-border": "#bfd0e3", "--ui-pill-bg": "#6b9dd8", "--ui-pill-text": "#ffffff", "--ui-nav-active": "#356da8", "--ui-nav-text": "#36516f", "--ui-select-bg": "#d7e6f5", "--ui-select-border": "#b5cee7", "--ui-select-panel": "#e7f0f8", "--ui-select-panel-border": "#c4d7ea" },
   },
   rose: {
-    dark: { "--ui-bg": "#11142a", "--ui-card-bg": "#292d45", "--ui-card-border": "#414867", "--ui-pill-bg": "#eba3c2", "--ui-pill-text": "#4f1835", "--ui-nav-active": "#7f2750", "--ui-nav-text": "#d8d5e9" },
-    light:{ "--ui-bg": "#d8d7df", "--ui-card-bg": "#f2eef6", "--ui-card-border": "#cbc3d4", "--ui-pill-bg": "#d685a9", "--ui-pill-text": "#ffffff", "--ui-nav-active": "#a24574", "--ui-nav-text": "#534661" },
+    dark: { "--ui-bg": "#11142a", "--ui-card-bg": "#292d45", "--ui-card-border": "#414867", "--ui-pill-bg": "#eba3c2", "--ui-pill-text": "#4f1835", "--ui-nav-active": "#7f2750", "--ui-nav-text": "#d8d5e9", "--ui-select-bg": "#5a4e57", "--ui-select-border": "#9b8c98", "--ui-select-panel": "#3b3139", "--ui-select-panel-border": "#8b7d89" },
+    light:{ "--ui-bg": "#d8d7df", "--ui-card-bg": "#f2eef6", "--ui-card-border": "#cbc3d4", "--ui-pill-bg": "#d685a9", "--ui-pill-text": "#ffffff", "--ui-nav-active": "#a24574", "--ui-nav-text": "#534661", "--ui-select-bg": "#e4d5e8", "--ui-select-border": "#c3afc9", "--ui-select-panel": "#efe4f2", "--ui-select-panel-border": "#cfbdd5" },
   },
   forest: {
-    dark: { "--ui-bg": "#131f1a", "--ui-card-bg": "#203128", "--ui-card-border": "#355240", "--ui-pill-bg": "#8fcf99", "--ui-pill-text": "#1e4a2b", "--ui-nav-active": "#2f7044", "--ui-nav-text": "#d7e8dc" },
-    light:{ "--ui-bg": "#dce8df", "--ui-card-bg": "#edf5ef", "--ui-card-border": "#c1d6c7", "--ui-pill-bg": "#77b285", "--ui-pill-text": "#ffffff", "--ui-nav-active": "#3c8653", "--ui-nav-text": "#3f5d48" },
+    dark: { "--ui-bg": "#131f1a", "--ui-card-bg": "#203128", "--ui-card-border": "#355240", "--ui-pill-bg": "#8fcf99", "--ui-pill-text": "#1e4a2b", "--ui-nav-active": "#2f7044", "--ui-nav-text": "#d7e8dc", "--ui-select-bg": "#3f5446", "--ui-select-border": "#7ea289", "--ui-select-panel": "#2a3a31", "--ui-select-panel-border": "#66806f" },
+    light:{ "--ui-bg": "#dce8df", "--ui-card-bg": "#edf5ef", "--ui-card-border": "#c1d6c7", "--ui-pill-bg": "#77b285", "--ui-pill-text": "#ffffff", "--ui-nav-active": "#3c8653", "--ui-nav-text": "#3f5d48", "--ui-select-bg": "#d7e7dc", "--ui-select-border": "#b5ceb9", "--ui-select-panel": "#e8f3eb", "--ui-select-panel-border": "#c5dcc9" },
   },
   sunset: {
-    dark: { "--ui-bg": "#23181c", "--ui-card-bg": "#3a282d", "--ui-card-border": "#634149", "--ui-pill-bg": "#f0b07b", "--ui-pill-text": "#5b3119", "--ui-nav-active": "#a7522a", "--ui-nav-text": "#ecd9ce" },
-    light:{ "--ui-bg": "#ead9d1", "--ui-card-bg": "#f8eee9", "--ui-card-border": "#dfc2b3", "--ui-pill-bg": "#da9360", "--ui-pill-text": "#ffffff", "--ui-nav-active": "#b15f36", "--ui-nav-text": "#694b3e" },
+    dark: { "--ui-bg": "#23181c", "--ui-card-bg": "#3a282d", "--ui-card-border": "#634149", "--ui-pill-bg": "#f0b07b", "--ui-pill-text": "#5b3119", "--ui-nav-active": "#a7522a", "--ui-nav-text": "#ecd9ce", "--ui-select-bg": "#6b5247", "--ui-select-border": "#b29281", "--ui-select-panel": "#4a352e", "--ui-select-panel-border": "#8e6c5f" },
+    light:{ "--ui-bg": "#ead9d1", "--ui-card-bg": "#f8eee9", "--ui-card-border": "#dfc2b3", "--ui-pill-bg": "#da9360", "--ui-pill-text": "#ffffff", "--ui-nav-active": "#b15f36", "--ui-nav-text": "#694b3e", "--ui-select-bg": "#f2e0d6", "--ui-select-border": "#d9bcad", "--ui-select-panel": "#f8ede6", "--ui-select-panel-border": "#e3cdbf" },
   },
   violet: {
-    dark: { "--ui-bg": "#171326", "--ui-card-bg": "#2a2342", "--ui-card-border": "#46386f", "--ui-pill-bg": "#c0a0ef", "--ui-pill-text": "#341d62", "--ui-nav-active": "#6840a8", "--ui-nav-text": "#e3daf1" },
-    light:{ "--ui-bg": "#ddd7ef", "--ui-card-bg": "#f0ecf9", "--ui-card-border": "#ccc2e7", "--ui-pill-bg": "#a987de", "--ui-pill-text": "#ffffff", "--ui-nav-active": "#7a52b9", "--ui-nav-text": "#4f456a" },
+    dark: { "--ui-bg": "#171326", "--ui-card-bg": "#2a2342", "--ui-card-border": "#46386f", "--ui-pill-bg": "#c0a0ef", "--ui-pill-text": "#341d62", "--ui-nav-active": "#6840a8", "--ui-nav-text": "#e3daf1", "--ui-select-bg": "#4b435f", "--ui-select-border": "#8f84ad", "--ui-select-panel": "#332d47", "--ui-select-panel-border": "#786d98" },
+    light:{ "--ui-bg": "#ddd7ef", "--ui-card-bg": "#f0ecf9", "--ui-card-border": "#ccc2e7", "--ui-pill-bg": "#a987de", "--ui-pill-text": "#ffffff", "--ui-nav-active": "#7a52b9", "--ui-nav-text": "#4f456a", "--ui-select-bg": "#e4dcf3", "--ui-select-border": "#cabce6", "--ui-select-panel": "#f1ebfa", "--ui-select-panel-border": "#d8caee" },
   },
 };
 
