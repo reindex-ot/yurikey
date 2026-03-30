@@ -42,11 +42,19 @@ body {
   justify-content: center;
 }
 
+.home-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 0.9rem;
+  margin-top: 1rem;
+}
+
 .beer-card {
   padding: 1rem 1.1rem;
   border-radius: 1.75rem;
-  background: color-mix(in srgb, var(--surface-container-high) 85%, var(--primary) 15%);
-  border: 1px solid color-mix(in srgb, var(--outline-variant) 65%, transparent);
+  background: #362f3b;
+  border: 1px solid #52455a;
+  box-shadow: 0 6px 22px rgb(0 0 0 / 35%);
   min-height: 112px;
   display: flex;
   flex-direction: column;
@@ -54,7 +62,7 @@ body {
 }
 
 .card-title {
-  color: var(--on-surface-variant);
+  color: #d0c3da;
   font-size: 1rem;
 }
 
@@ -62,7 +70,7 @@ body {
   margin: 0.65rem 0 0;
   font-weight: 700;
   font-size: 1.02rem;
-  color: var(--on-surface);
+  color: #f3edf7;
 }
 
 #status-row.online {
