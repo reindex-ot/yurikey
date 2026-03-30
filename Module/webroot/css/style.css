@@ -18,6 +18,7 @@
   --ui-select-panel-border: #587493;
   --ui-snackbar-bg: #223247;
   --ui-snackbar-border: #5b7a9a;
+  --ui-snackbar-linear: #7fb4f5;
   --ui-snackbar-text: #f3edf7;
   --ui-snackbar-info: color-mix(in srgb, var(--ui-pill-bg) 52%, #7aa3ff 48%);
   --ui-snackbar-success: color-mix(in srgb, var(--ui-pill-bg) 35%, #5fcf8f 65%);
@@ -45,6 +46,7 @@
   --ui-select-panel-border: #c3d8f3;
   --ui-snackbar-bg: #eef4ff;
   --ui-snackbar-border: #c2d6ef;
+  --ui-snackbar-linear: #2a76c4;
   --ui-snackbar-text: #2f2433;
   --ui-snackbar-info: color-mix(in srgb, var(--ui-pill-bg) 58%, #5776c5 42%);
   --ui-snackbar-success: color-mix(in srgb, var(--ui-pill-bg) 36%, #3d9a66 64%);
@@ -516,6 +518,7 @@ body {
 .snackbar-progress {
   height: 3px;
   width: 100%;
+  background: var(--ui-snackbar-linear);
   transform-origin: left center;
   animation-name: snackbar-progress;
   animation-timing-function: linear;
@@ -523,16 +526,12 @@ body {
 }
 
 .snackbar.success { border-color: var(--ui-snackbar-success); }
-.snackbar.success .snackbar-progress { background: var(--ui-snackbar-success); }
 
 .snackbar.error { border-color: var(--ui-snackbar-error); }
-.snackbar.error .snackbar-progress { background: var(--ui-snackbar-error); }
 
 .snackbar.warning { border-color: var(--ui-snackbar-warning); }
-.snackbar.warning .snackbar-progress { background: var(--ui-snackbar-warning); }
 
 .snackbar.info { border-color: var(--ui-snackbar-info); }
-.snackbar.info .snackbar-progress { background: var(--ui-snackbar-info); }
 
 .snackbar-spinner {
   width: 16px;

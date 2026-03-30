@@ -63,6 +63,7 @@ function withDerived(colors, mode) {
     "--ui-snackbar-text": mode === "light" ? "#2f2433" : "#f3edf7",
     "--ui-snackbar-bg": mode === "light" ? mix(card, "#ffffff", 0.28) : mix(card, "#151a24", 0.34),
     "--ui-snackbar-border": mode === "light" ? mix(card, "#7d8898", 0.28) : mix(card, "#c6d3e6", 0.22),
+    "--ui-snackbar-linear": mode === "light" ? mix(base, "#ffffff", 0.18) : mix(base, "#0f172a", 0.12),
     "--ui-snackbar-info": mode === "light" ? "#2f6fdd" : "#78a9ff",
     "--ui-snackbar-success": mode === "light" ? "#2f9a65" : "#63d49a",
     "--ui-snackbar-warning": mode === "light" ? "#b26a11" : "#f0b35d",
