@@ -396,30 +396,34 @@ body {
 }
 
 .default-switch-ui {
+  position: relative;
   width: 100%;
   height: 100%;
   border-radius: 999px;
-  border: 2px solid rgb(255 255 255 / 20%);
-  background: color-mix(in srgb, var(--ui-card-bg) 70%, #000 30%);
+  border: 2px solid color-mix(in srgb, var(--ui-card-border) 82%, #ffffff 18%);
+  background: color-mix(in srgb, var(--ui-card-bg) 78%, #000 22%);
   display: inline-flex;
   align-items: center;
+  justify-content: flex-start;
   padding: 0 5px;
   transition: all 0.2s ease;
   pointer-events: none;
 }
 
 .default-switch-ui::before {
-  content: \"\";
-  width: 14px;
-  height: 14px;
+  content: "";
+  display: block;
+  width: 16px;
+  height: 16px;
   border-radius: 50%;
-  background: rgb(255 255 255 / 45%);
+  background: rgb(255 255 255 / 70%);
+  box-shadow: 0 1px 2px rgb(0 0 0 / 30%);
   transition: transform 0.2s ease, background 0.2s ease;
 }
 
 .default-switch-wrap input:checked + .default-switch-ui {
-  background: #6f1d1d;
-  border-color: #913535;
+  background: var(--ui-nav-active);
+  border-color: color-mix(in srgb, var(--ui-nav-active) 70%, #ffffff 30%);
 }
 
 .default-switch-wrap input:checked + .default-switch-ui::before {
@@ -428,9 +432,9 @@ body {
 }
 
 .default-switch-wrap input:checked + .default-switch-ui::after {
-  content: \"✓\";
+  content: "✓";
   position: absolute;
-  right: 12px;
+  right: 11px;
   color: #ffffff;
   font-size: 12px;
   font-weight: 700;
