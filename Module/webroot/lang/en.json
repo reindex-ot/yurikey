@@ -83,10 +83,11 @@
   "execution_backend_ksu": "KernelSU",
   "execution_backend_host": "Host Bridge",
   "execution_backend_none": "No backend",
-  "snackbar_output_meta_default": "Execution backend status will appear here.",
-  "snackbar_output_meta_ready": "Backend: {backend}. Script output is available.",
-  "snackbar_output_meta_empty": "Backend: {backend}. Script finished without text output.",
-  "snackbar_output_meta_failed": "Backend: {backend}. Script reported an error.",
-  "snackbar_output_meta_timeout": "Backend: {backend}. Script timed out.",
-  "snackbar_output_meta_unavailable": "Backend: {backend}. This environment cannot run scripts."
+  "snackbar_output_meta_default": "Script status details will appear here.",
+  "snackbar_output_meta_ready": "Script output is ready to view.",
+  "snackbar_output_meta_empty": "Script finished without text output.",
+  "snackbar_output_meta_failed": "Script could not be executed.",
+  "snackbar_output_meta_timeout": "Script execution timed out.",
+  "snackbar_output_meta_unavailable": "Script execution is not available in this environment.",
+  "script_execution_failed_generic": "Script could not be executed. Check script path or runtime environment."
 }

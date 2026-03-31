@@ -83,10 +83,11 @@
   "execution_backend_ksu": "KernelSU",
   "execution_backend_host": "Host Köprüsü",
   "execution_backend_none": "Backend yok",
-  "snackbar_output_meta_default": "Çalıştırma backend durumu burada görünecek.",
-  "snackbar_output_meta_ready": "Backend: {backend}. Betik çıktısı hazır.",
-  "snackbar_output_meta_empty": "Backend: {backend}. Betik metin çıktısı üretmeden tamamlandı.",
-  "snackbar_output_meta_failed": "Backend: {backend}. Betik hata bildirdi.",
-  "snackbar_output_meta_timeout": "Backend: {backend}. Betik zaman aşımına uğradı.",
-  "snackbar_output_meta_unavailable": "Backend: {backend}. Bu ortamda betik çalıştırılamıyor."
+  "snackbar_output_meta_default": "Betik durum detayları burada görünecek.",
+  "snackbar_output_meta_ready": "Betik çıktısı görüntülenmeye hazır.",
+  "snackbar_output_meta_empty": "Betik metin çıktısı üretmeden tamamlandı.",
+  "snackbar_output_meta_failed": "Betik çalıştırılamadı.",
+  "snackbar_output_meta_timeout": "Betik çalıştırması zaman aşımına uğradı.",
+  "snackbar_output_meta_unavailable": "Bu ortamda betik çalıştırma kullanılamıyor.",
+  "script_execution_failed_generic": "Betik çalıştırılamadı. Betik yolunu veya çalışma ortamını kontrol edin."
 }

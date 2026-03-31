@@ -8,33 +8,44 @@ document.addEventListener("DOMContentLoaded", () => {
   let activeToastOutput = "";
 
   function getScriptExecutor() {
+    if (typeof window.YuriKeyHost?.execScript === "function") {
+      return (scriptPath, scriptName, cb) => {
+        Promise.resolve(window.YuriKeyHost.execScript(scriptPath, scriptName))
+          .then(result => cb(typeof result === "string" ? result : JSON.stringify(result)))
+          .catch(() => cb(""));
+      };
+    }
+
+    if (typeof window.execYurikeyScript === "function") {
+      return (scriptPath, scriptName, cb) => {
+        Promise.resolve(window.execYurikeyScript(scriptPath, scriptName))
+          .then(result => cb(typeof result === "string" ? result : JSON.stringify(result)))
+          .catch(() => cb(""));
+      };
+    }
+
     if (typeof ksu === "object" && typeof ksu.exec === "function") {
-      return { type: "ksu", label: t("execution_backend_ksu") };
+      return (scriptPath, _scriptName, cbName) => ksu.exec(`sh "${scriptPath}"`, "{}", cbName);
     }
 
-    const hostExec = window.YuriKeyHost?.execScript || window.execYurikeyScript;
-    if (typeof hostExec === "function") {
-      return { type: "host", label: t("execution_backend_host"), exec: hostExec };
-    }
-
-    return { type: "none", label: t("execution_backend_none") };
+    return null;
   }
 
-  function setOutputMeta(statusKey, backendLabel) {
+  function setOutputMeta(statusKey) {
     const metaEl = document.getElementById("snackbar-output-meta");
     if (!metaEl) return;
 
-    metaEl.textContent = tFormat(statusKey, { backend: backendLabel });
+    metaEl.textContent = t(statusKey);
   }
 
-  function showOutputDialog(output, backendLabel = "") {
+  function showOutputDialog(output) {
     const dialog = document.getElementById("snackbar-output-dialog");
     const overlay = document.getElementById("snackbar-output-overlay");
     const outputEl = document.getElementById("snackbar-output-text");
     if (!dialog || !overlay || !outputEl) return;
 
     outputEl.textContent = output || t("snackbar_no_output");
-    setOutputMeta("snackbar_output_meta_ready", backendLabel || t("execution_backend_none"));
+    setOutputMeta("snackbar_output_meta_ready");
 
     overlay.classList.add("active");
     if (!dialog.open) dialog.showModal();
@@ -49,7 +60,7 @@ document.addEventListener("DOMContentLoaded", () => {
     overlay.classList.remove("active");
   }
 
-  function showToast(message, type = "info", duration = 3000, output = "", backendLabel = "") {
+  function showToast(message, type = "info", duration = 3000, output = "") {
     const snackbar = document.getElementById("snackbar");
     if (!snackbar) return;
 
@@ -59,11 +70,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (output && output.trim()) {
       activeToastOutput = output.trim();
-      snackbar.dataset.backendLabel = backendLabel;
       snackbar.classList.add("has-output");
     } else {
       activeToastOutput = "";
-      delete snackbar.dataset.backendLabel;
       snackbar.classList.remove("has-output");
     }
 
@@ -73,12 +82,12 @@ document.addEventListener("DOMContentLoaded", () => {
     }, duration);
   }
 
-  function handleScriptResult(rawOutput, scriptName, backendLabel) {
+  function handleScriptResult(rawOutput, scriptName) {
     const raw = typeof rawOutput === "string" ? rawOutput.trim() : "";
 
     if (!raw) {
-      showToast(tFormat("success", { script: scriptName }), "success", 3000, "", backendLabel);
-      setOutputMeta("snackbar_output_meta_empty", backendLabel);
+      showToast(tFormat("success", { script: scriptName }), "success", 3000, "");
+      setOutputMeta("snackbar_output_meta_empty");
       return;
     }
 
@@ -86,30 +95,21 @@ document.addEventListener("DOMContentLoaded", () => {
       const json = JSON.parse(raw);
       if (json.success) {
         const commandOutput = typeof json.output === "string" ? json.output.trim() : "";
-        showToast(tFormat("success", { script: scriptName }), "success", 3000, commandOutput, backendLabel);
-        setOutputMeta("snackbar_output_meta_ready", backendLabel);
-      } else if (json.error) {
-        showToast(tFormat("failed", { script: scriptName }) + ` (${json.error})`, "error", 4000, raw, backendLabel);
-        setOutputMeta("snackbar_output_meta_failed", backendLabel);
+        showToast(tFormat("success", { script: scriptName }), "success", 3000, commandOutput);
+        setOutputMeta("snackbar_output_meta_ready");
       } else {
-        showToast(tFormat("failed", { script: scriptName }) + " (Unknown response)", "error", 4000, raw, backendLabel);
-        setOutputMeta("snackbar_output_meta_failed", backendLabel);
+        showToast(t("script_execution_failed_generic"), "error", 4000, raw);
+        setOutputMeta("snackbar_output_meta_failed");
       }
     } catch {
-      showToast(tFormat("success", { script: scriptName }), "success", 3500, raw, backendLabel);
-      setOutputMeta("snackbar_output_meta_ready", backendLabel);
+      showToast(tFormat("success", { script: scriptName }), "success", 3500, raw);
+      setOutputMeta("snackbar_output_meta_ready");
     }
   }
 
   function runScript(scriptName, basePath, button) {
     const scriptPath = `${basePath}${scriptName}`;
-    const executor = getScriptExecutor();
-
-    if (executor.type === "none") {
-      showToast(t("execution_unavailable"), "warning", 4500);
-      setOutputMeta("snackbar_output_meta_unavailable", executor.label);
-      return;
-    }
+    const executeScript = getScriptExecutor();
 
     const originalClass = button.className;
     button.classList.add("executing");
@@ -121,39 +121,30 @@ document.addEventListener("DOMContentLoaded", () => {
       clearTimeout(timeoutId);
       delete window[cb];
       button.className = originalClass;
-      handleScriptResult(output, scriptName, executor.label);
+      handleScriptResult(output, scriptName);
     };
 
     try {
-      showToast(tFormat("executing", { script: scriptName }), "info", 3000, "", executor.label);
-
-      if (executor.type === "ksu") {
-        ksu.exec(`sh "${scriptPath}"`, "{}", cb);
-      } else {
-        Promise.resolve(executor.exec(scriptPath, scriptName))
-          .then(result => window[cb](typeof result === "string" ? result : JSON.stringify(result)))
-          .catch((error) => {
-            clearTimeout(timeoutId);
-            delete window[cb];
-            button.className = originalClass;
-            showToast(tFormat("failed", { script: scriptName }) + ` (${error?.message || "host"})`, "error", 4500);
-            setOutputMeta("snackbar_output_meta_failed", executor.label);
-          });
+      if (!executeScript) {
+        throw new Error("executor-unavailable");
       }
+
+      showToast(tFormat("executing", { script: scriptName }), "info");
+      executeScript(scriptPath, scriptName, cb);
     } catch (_e) {
       clearTimeout(timeoutId);
       delete window[cb];
       button.className = originalClass;
-      showToast(tFormat("failed", { script: scriptName }), "error", 4500);
-      setOutputMeta("snackbar_output_meta_failed", executor.label);
+      showToast(t("script_execution_failed_generic"), "error", 4500);
+      setOutputMeta("snackbar_output_meta_unavailable");
       return;
     }
 
     timeoutId = setTimeout(() => {
       delete window[cb];
       button.className = originalClass;
-      showToast(tFormat("timeout", { script: scriptName }), "error", 4500);
-      setOutputMeta("snackbar_output_meta_timeout", executor.label);
+      showToast(t("script_execution_failed_generic"), "error", 4500);
+      setOutputMeta("snackbar_output_meta_timeout");
     }, 7000);
   }
 
@@ -359,8 +350,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   snackbar?.addEventListener("click", () => {
     if (!activeToastOutput) return;
-    const backendLabel = snackbar.dataset.backendLabel || t("execution_backend_none");
-    showOutputDialog(activeToastOutput, backendLabel);
+    showOutputDialog(activeToastOutput);
   });
 
   closeOutputBtn?.addEventListener("click", closeOutputDialog);
