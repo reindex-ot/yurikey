@@ -247,9 +247,15 @@
   <dialog id="script-history-dialog" class="snackbar-dialog">
     <h5 data-i18n="script_history_title">Script Outputs</h5>
     <div id="script-history-content" class="snackbar-output-pre"></div>
-    <nav class="right-align no-space">
-      <button id="script-history-clear" class="transparent link" data-i18n="dialog_clear">Clear</button>
-      <button id="script-history-close" class="transparent link" data-i18n="dialog_close">Close</button>
+    <nav class="right-align history-dialog-actions">
+      <button id="script-history-clear" class="fill error">
+        <i class="material-symbols-rounded" aria-hidden="true">delete</i>
+        <span data-i18n="dialog_clear">Clear</span>
+      </button>
+      <button id="script-history-close" class="fill">
+        <i class="material-symbols-rounded" aria-hidden="true">close</i>
+        <span data-i18n="dialog_close">Close</span>
+      </button>
     </nav>
   </dialog>
 
