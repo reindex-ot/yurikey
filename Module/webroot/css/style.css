@@ -579,20 +579,17 @@ body {
   gap: 0.5rem;
 }
 
-.history-dialog-actions button.fill {
-  border-radius: 999px !important;
-  min-width: 92px;
-  padding: 0.45rem 1rem;
-  border: none !important;
-  background: var(--primary) !important;
-  color: var(--on-primary) !important;
+.history-dialog-actions .history-btn {
+  border-radius: 999px;
+  min-width: 110px;
+  padding: 0.6rem 1rem;
+  border: 1px solid var(--ui-pill-border);
+  background: var(--ui-pill-bg);
+  color: var(--ui-pill-text);
+  font-weight: 700;
   box-shadow: none;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  opacity: 1 !important;
 }
 
-.history-dialog-actions button.fill:hover {
-  filter: brightness(1.05);
+.history-dialog-actions .history-btn:hover {
+  background: var(--ui-pill-bg-hover);
 }
