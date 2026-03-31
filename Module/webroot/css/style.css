@@ -579,16 +579,20 @@ body {
   gap: 0.5rem;
 }
 
-.history-dialog-actions .fill {
-  border-radius: 999px;
+.history-dialog-actions button.fill {
+  border-radius: 999px !important;
   min-width: 92px;
   padding: 0.45rem 1rem;
-  border: none;
-  background: var(--primary);
-  color: var(--on-primary);
+  border: none !important;
+  background: var(--primary) !important;
+  color: var(--on-primary) !important;
   box-shadow: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 1 !important;
 }
 
-.history-dialog-actions .fill:hover {
+.history-dialog-actions button.fill:hover {
   filter: brightness(1.05);
 }
