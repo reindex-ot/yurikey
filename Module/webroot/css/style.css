@@ -507,8 +507,8 @@ body {
 .snackbar {
   position: fixed;
   left: 50%;
-  bottom: 5.3rem;
-  transform: translateX(-50%) translateY(20px);
+  top: 1rem;
+  transform: translateX(-50%) translateY(-20px);
   min-width: min(88vw, 560px);
   max-width: min(88vw, 560px);
   padding: 0.85rem 1rem;
@@ -582,10 +582,4 @@ body {
 .history-dialog-actions .fill {
   border-radius: 999px;
   min-width: 120px;
-  justify-content: center;
-  gap: 0.4rem;
-}
-
-.history-dialog-actions .fill i {
-  font-size: 18px;
 }
