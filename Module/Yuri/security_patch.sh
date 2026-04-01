@@ -8,7 +8,7 @@ log_message "Start"
 
 sp="/data/adb/tricky_store/security_patch.txt"
 
-# Get current year / month
+# Get current year / month / day
 current_year=$(date +%Y) || {
     log_message "ERROR: Failed to get current year"
     exit 1
@@ -19,21 +19,34 @@ current_month=$(date +%m | sed 's/^0*//') || {
     exit 1
 }
 
-# Calculate previous month
-if [ "$current_month" -eq 1 ]; then
-    prev_month=12
-    prev_year=$((current_year - 1))
-else
-    prev_month=$((current_month - 1))
-    prev_year=$current_year
-fi
-
-formatted_month=$(printf "%02d" "$prev_month") || {
-    log_message "ERROR: Failed to format month"
+current_day=$(date +%d | sed 's/^0*//') || {
+    log_message "ERROR: Failed to get current day"
     exit 1
 }
 
-patch_date="${prev_year}-${formatted_month}-05"
+# Logic: Security Patch drop on the 5th. 
+if [ "$current_day" -lt 10 ]; then
+  # Before the 5th: Use previous month
+  if [ "$current_month" -eq 1 ]; then
+    target_month=12
+    target_year=$((current_year - 1))
+  else
+    target_month=$((current_month - 1))
+    target_year=$current_year
+  fi
+else
+  # On or after the 10th: Use current month
+  target_month=$current_month
+  target_year=$current_year
+fi
+
+# Format the target month to always have two digits (e.g., 03)
+formatted_month=$(printf "%02d" "$target_month") || {
+  log_message "ERROR: Failed to format month"
+  exit 1
+}
+
+patch_date="${target_year}-${formatted_month}-05"
 
 log_message "Writing"
 
