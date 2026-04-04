@@ -371,13 +371,13 @@ document.addEventListener("DOMContentLoaded", () => {
   window.showWarningToast = (message, duration = 3500) => showToast(message, "warning", duration);
   window.showInfoToast = (message, duration = 3000) => showToast(message, "info", duration);
 
-  const openHistoryHomeBtn = document.getElementById("open-script-history-home");
+  const openHistoryButtons = document.querySelectorAll("[data-open-history='true']");
   const historyDialog = document.getElementById("script-history-dialog");
   const historyOverlay = document.getElementById("script-history-overlay");
   const historyCloseBtn = document.getElementById("script-history-close");
   const historyClearBtn = document.getElementById("script-history-clear");
 
-  openHistoryHomeBtn?.addEventListener("click", openHistoryDialog);
+  openHistoryButtons.forEach(btn => btn.addEventListener("click", openHistoryDialog));
   historyCloseBtn?.addEventListener("click", closeHistoryDialog);
   historyOverlay?.addEventListener("click", closeHistoryDialog);
   historyDialog?.addEventListener("close", () => historyOverlay?.classList.remove("active"));

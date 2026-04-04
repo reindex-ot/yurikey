@@ -152,11 +152,16 @@ body {
   flex-wrap: wrap;
 }
 
+.home-action-buttons .menu-btn {
+  width: auto !important;
+  min-width: 180px;
+}
+
 #home-page #refresh-info-btn:hover,
 #home-page #open-script-history-home:hover,
 #actions-page .menu-btn:hover,
 #advance-menu .menu-btn:hover,
-#settings-page .update-support .menu-btn:hover:hover {
+#settings-page .update-support .menu-btn:hover {
   background: var(--ui-pill-bg-hover);
 }
 
