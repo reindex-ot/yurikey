@@ -372,12 +372,14 @@ document.addEventListener("DOMContentLoaded", () => {
   window.showInfoToast = (message, duration = 3000) => showToast(message, "info", duration);
 
   const historyCard = document.getElementById("module-version-card");
+  const openHistorySettingsBtn = document.getElementById("open-script-history-settings");
   const historyDialog = document.getElementById("script-history-dialog");
   const historyOverlay = document.getElementById("script-history-overlay");
   const historyCloseBtn = document.getElementById("script-history-close");
   const historyClearBtn = document.getElementById("script-history-clear");
 
   historyCard?.addEventListener("click", openHistoryDialog);
+  openHistorySettingsBtn?.addEventListener("click", openHistoryDialog);
   historyCloseBtn?.addEventListener("click", closeHistoryDialog);
   historyOverlay?.addEventListener("click", closeHistoryDialog);
   historyDialog?.addEventListener("close", () => historyOverlay?.classList.remove("active"));

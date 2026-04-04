@@ -594,3 +594,48 @@ body {
 .history-dialog-actions .history-btn:hover {
   background: var(--ui-pill-bg-hover);
 }
+
+.snackbar-appearance h6 {
+  font-size: 1.2rem;
+}
+
+.snackbar-color-tool {
+  margin-top: 0.85rem;
+}
+
+.snackbar-tool-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.55rem;
+}
+
+.snackbar-tool-select,
+#snackbar-color-tool-hex {
+  border-radius: 0.8rem;
+  border: 1px solid var(--ui-select-border);
+  background: var(--ui-select-bg);
+  color: var(--ui-text);
+  padding: 0.6rem 0.75rem;
+}
+
+#snackbar-color-tool-picker {
+  width: 100%;
+  min-height: 42px;
+  border: none;
+  border-radius: 0.7rem;
+  background: transparent;
+}
+
+.settings-history-card .menu-btn {
+  margin-top: 0.5rem;
+  border-radius: 999px;
+  min-height: 44px;
+  border: 1px solid var(--ui-pill-border);
+  background: var(--ui-pill-bg);
+  color: var(--ui-pill-text);
+  font-weight: 700;
+}
+
+.settings-history-card .menu-btn:hover {
+  background: var(--ui-pill-bg-hover);
+}

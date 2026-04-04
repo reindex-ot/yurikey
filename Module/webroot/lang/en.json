@@ -92,5 +92,9 @@
   "script_execution_failed_generic": "Script could not be executed. Check script path or runtime environment.",
   "script_history_title": "Script Outputs",
   "script_history_empty": "No script output has been recorded yet.",
-  "dialog_clear": "Clear"
+  "dialog_clear": "Clear",
+  "settings_script_history_desc": "Open and manage recent script outputs collected from actions.",
+  "settings_open_script_history": "Open Script Outputs",
+  "snackbar_color_tool_title": "WebUI Color Tool",
+  "snackbar_color_apply": "Apply Color"
 }

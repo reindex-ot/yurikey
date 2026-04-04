@@ -186,6 +186,21 @@
                 <input type="color" id="snackbar-text-color" value="#ffffff" />
               </label>
             </div>
+            <div class="snackbar-color-tool">
+              <h6 data-i18n="snackbar_color_tool_title">WebUI Color Tool</h6>
+              <div class="snackbar-tool-grid">
+                <select id="snackbar-color-target" class="snackbar-tool-select">
+                  <option value="info" data-i18n="snackbar_info_color">Info</option>
+                  <option value="success" data-i18n="snackbar_success_color">Success</option>
+                  <option value="warning" data-i18n="snackbar_warning_color">Warning</option>
+                  <option value="error" data-i18n="snackbar_error_color">Error</option>
+                  <option value="text" data-i18n="snackbar_text_color">Text</option>
+                </select>
+                <input type="color" id="snackbar-color-tool-picker" value="#2196f3" />
+                <input type="text" id="snackbar-color-tool-hex" value="#2196f3" maxlength="7" />
+                <button id="snackbar-color-tool-apply" class="menu-btn" data-i18n="snackbar_color_apply">Apply Color</button>
+              </div>
+            </div>
           </div>
         </article>
 
@@ -199,6 +214,12 @@
               <li data-format="12h" data-i18n="clock_format_12h">12-hour (AM/PM)</li>
             </ul>
           </div>
+        </article>
+
+        <article class="surface-variant block settings-history-card">
+          <h6 data-i18n="script_history_title">Script Outputs</h6>
+          <p class="small-text" data-i18n="settings_script_history_desc">Open and manage recent script outputs collected from actions.</p>
+          <button id="open-script-history-settings" class="menu-btn" data-i18n="settings_open_script_history">Open Script Outputs</button>
         </article>
 
         <article class="surface-variant block update-support">

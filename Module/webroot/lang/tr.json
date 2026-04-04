@@ -92,5 +92,9 @@
   "script_execution_failed_generic": "Betik çalıştırılamadı. Betik yolunu veya çalışma ortamını kontrol edin.",
   "script_history_title": "Betik Çıktıları",
   "script_history_empty": "Henüz kaydedilmiş betik çıktısı yok.",
-  "dialog_clear": "Temizle"
+  "dialog_clear": "Temizle",
+  "settings_script_history_desc": "Eylemlerden toplanan son betik çıktılarını açın ve yönetin.",
+  "settings_open_script_history": "Betik Çıktılarını Aç",
+  "snackbar_color_tool_title": "WebUI Renk Aracı",
+  "snackbar_color_apply": "Rengi Uygula"
 }
