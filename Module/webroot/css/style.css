@@ -112,8 +112,8 @@ body {
 }
 
 .mini-card {
-  padding: 0.7rem 0.9rem;
-  border-radius: 1rem;
+  padding: 0.5rem 0.8rem;
+  border-radius: 0.9rem;
   background: var(--ui-card-bg);
   border: 1px solid var(--ui-card-border);
   width: 100%;
@@ -184,18 +184,17 @@ body {
 
 .home-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 0.9rem;
-  margin-top: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Küçük kartlar için daha dar kolonlar */
+  gap: 0.75rem;
 }
 
 .beer-card {
-  padding: 1rem 1.1rem;
-  border-radius: 1.75rem;
+  padding: 0.8rem 1rem;
+  border-radius: 1.25rem;
   background: var(--ui-card-bg);
   border: 1px solid var(--ui-card-border);
-  box-shadow: 0 6px 22px rgb(0 0 0 / 35%);
-  min-height: 112px;
+  box-shadow: 0 4px 16px rgb(0 0 0 / 20%);
+  min-height: 100px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -280,7 +279,7 @@ body {
 }
 
 .nav-btn span {
-  font-size: 0.92rem;
+  font-size: 0.85rem;
   white-space: nowrap;
 }
 
@@ -390,13 +389,37 @@ body {
   background: var(--ui-card-bg);
   border: 1px solid var(--ui-card-border);
   color: var(--ui-text);
-  box-shadow: 0 6px 20px rgb(0 0 0 / 24%);
+  box-shadow: 0 4px 12px rgb(0 0 0 / 20%);
+  padding: 0.8rem 1rem;
+  border-radius: 1rem;
+  min-height: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 #actions-page .surface-variant.block.menu-card h6,
 #advance-menu .surface-variant.block.menu-card h6,
 #settings-page .surface-variant.block h6 {
   color: var(--ui-text);
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+@media (max-width: 768px) {
+  #settings-page .surface-variant.block,
+  #actions-page .surface-variant.block.menu-card,
+  #advance-menu .surface-variant.block.menu-card {
+    padding: 0.6rem 0.8rem;
+    min-height: 90px;
+    border-radius: 0.9rem;
+  }
+
+  #actions-page .surface-variant.block.menu-card h6,
+  #advance-menu .surface-variant.block.menu-card h6,
+  #settings-page .surface-variant.block h6 {
+    font-size: 0.9rem;
+  }
 }
 
 .appearance-header {
@@ -571,4 +594,17 @@ body {
   background: var(--ui-pill-bg-hover);
 }
 
+@media (max-width: 768px) {
+  .beer-card {
+    min-height: 90px; /* Mobilde daha kısa */
+    padding: 0.7rem 0.8rem; /* Daha küçük iç boşluk */
+  }
 
+  .mini-card {
+    padding: 0.4rem 0.6rem; /* Küçük kartlar daha da küçülsün */
+  }
+
+  .home-grid {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); /* Kolonlar daha dar */
+  }
+}
