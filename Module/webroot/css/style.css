@@ -91,7 +91,6 @@ body {
 }
 
 #home-page #refresh-info-btn,
-#home-page #open-script-history-home,
 #actions-page .menu-btn,
 #advance-menu .menu-btn,
 #settings-page .update-support .menu-btn {
@@ -106,8 +105,7 @@ body {
   box-shadow: none;
 }
 
-#home-page #refresh-info-btn,
-#home-page #open-script-history-home {
+#home-page #refresh-info-btn {
   width: auto;
   min-width: 180px;
   align-self: flex-start;
@@ -146,19 +144,8 @@ body {
   margin-bottom: 0.5rem;
 }
 
-.home-action-buttons {
-  display: flex;
-  gap: 0.6rem;
-  flex-wrap: wrap;
-}
-
-.home-action-buttons .menu-btn {
-  width: auto !important;
-  min-width: 180px;
-}
 
 #home-page #refresh-info-btn:hover,
-#home-page #open-script-history-home:hover,
 #actions-page .menu-btn:hover,
 #advance-menu .menu-btn:hover,
 #settings-page .update-support .menu-btn:hover {
@@ -189,7 +176,6 @@ body {
 }
 
 #home-page #refresh-info-btn:active,
-#home-page #open-script-history-home:active,
 #actions-page .menu-btn:active,
 #advance-menu .menu-btn:active,
 #settings-page .update-support .menu-btn:active:active {
