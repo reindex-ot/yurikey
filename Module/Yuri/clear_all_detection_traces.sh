@@ -137,5 +137,3 @@ main() {
     reset_prop
     odex_files
 }
-
-main
