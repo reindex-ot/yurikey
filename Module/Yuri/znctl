@@ -1,0 +1,19 @@
+#!/system/bin/sh
+
+log_message() {
+    echo "$(date +%Y-%m-%d\ %H:%M:%S) [ZYGISK_NEXT] $1"
+}
+
+log_message "Start"
+
+znctl() {
+    [ -n "$1" ] && /data/adb/modules/zygisksu/bin/zygiskd "$@" 2>/dev/null
+}
+
+log_message "Writing"
+
+znctl enforce-denylist just_umount
+znctl memory-type anonymous
+znctl linker builtin
+
+log_message "Finish"
