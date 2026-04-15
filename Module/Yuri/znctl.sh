@@ -11,7 +11,7 @@ REQUIRED="1.3.0"
 
 # Check if Zygisk Next installed
 if [ ! -f "$TARGET_FILE" ]; then
-  echo "Error: Zygisk Next is not found or file corrupted, please install latest Zygisk Next."
+  log_message "Error: Zygisk Next is not found or file corrupted, please install latest Zygisk Next."
   return 1
 fi
 
