@@ -9,6 +9,7 @@
 [![Crowdin](https://badges.crowdin.net/yurikey/localized.svg)](https://crowdin.com/project/yurikey)
 
 **Language:** [日本語](./doc/README_ja-JP.md)
+
 A Systemless Module to get Strong Integrity so Easily
 
 [Crowdin](https://crwd.in/yurikey/16ffbcb2d7926491c764b48a99bc06c52742324)
